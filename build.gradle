@@ -13,14 +13,25 @@ repositories {
 }
 
 dependencies {
+  implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+  implementation 'org.springframework.boot:spring-boot-starter-validation'
   implementation 'org.springframework.boot:spring-boot-starter-web'
   testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
-  developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+  testImplementation 'org.junit.jupiter:junit-jupiter:5.11.2'
   testImplementation('org.mockito:mockito-core')
+
+  developmentOnly 'org.springframework.boot:spring-boot-devtools'
+
+  runtimeOnly 'com.h2database:h2'
 }
+
+
+
 
 test {
   useJUnitPlatform()
 }
+  
