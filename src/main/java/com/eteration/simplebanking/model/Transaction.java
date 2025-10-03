@@ -13,7 +13,6 @@ import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Positive;
 
-// This class is a place holder you can change the complete implementation
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 public abstract class Transaction implements Accountable{

@@ -9,8 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 
-// This class is a place holder you can change the complete implementation
-
 @Entity
 public class Account {
 

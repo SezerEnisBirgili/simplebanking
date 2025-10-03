@@ -21,7 +21,6 @@ import com.eteration.simplebanking.model.InsufficientBalanceException;
 import com.eteration.simplebanking.model.WithdrawalTransaction;
 import com.eteration.simplebanking.services.AccountService;
 
-// This class is a place holder you can change the complete implementation
 @RestController
 @RequestMapping("/account/v1")
 public class AccountController {
