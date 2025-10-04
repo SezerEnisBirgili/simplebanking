@@ -7,8 +7,6 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.when;
 
-import javax.security.auth.login.AccountNotFoundException;
-
 import com.eteration.simplebanking.controller.AccountController;
 import com.eteration.simplebanking.dto.AccountDTO;
 import com.eteration.simplebanking.dto.CreditRequest;
@@ -16,6 +14,7 @@ import com.eteration.simplebanking.dto.DebitRequest;
 import com.eteration.simplebanking.dto.TransactionStatus;
 import com.eteration.simplebanking.mapper.Mapper;
 import com.eteration.simplebanking.model.Account;
+import com.eteration.simplebanking.model.AccountNotFoundException;
 import com.eteration.simplebanking.model.DepositTransaction;
 import com.eteration.simplebanking.model.InsufficientBalanceException;
 import com.eteration.simplebanking.model.WithdrawalTransaction;
@@ -115,7 +114,7 @@ class ControllerTests  {
             () -> controller.debit(accountNumber, request)
         );
 
-        assertEquals(HttpStatus.BAD_REQUEST, ex.getStatus());
+        assertEquals(HttpStatus.BAD_REQUEST, ex.getStatusCode());
         assertEquals("INSUFFICIENT_BALANCE", ex.getReason());
     }
 
@@ -134,7 +133,7 @@ class ControllerTests  {
             () -> controller.debit(accountNumber, request)
         );
 
-        assertEquals(HttpStatus.NOT_FOUND, ex.getStatus());
+        assertEquals(HttpStatus.NOT_FOUND, ex.getStatusCode());
         assertEquals("ACCOUNT_NOT_FOUND", ex.getReason());
     }
 
@@ -153,7 +152,7 @@ class ControllerTests  {
             () -> controller.credit(accountNumber, request)
         );
 
-        assertEquals(HttpStatus.NOT_FOUND, ex.getStatus());
+        assertEquals(HttpStatus.NOT_FOUND, ex.getStatusCode());
         assertEquals("ACCOUNT_NOT_FOUND", ex.getReason());
     }
 

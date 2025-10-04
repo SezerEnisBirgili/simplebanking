@@ -1,6 +1,6 @@
 package com.eteration.simplebanking.model;
 
-import javax.persistence.Entity;
+import jakarta.persistence.Entity;
 
 // This class is a place holder you can change the complete implementation
 @Entity

@@ -1,6 +1,6 @@
 package com.eteration.simplebanking.model;
 
-import javax.persistence.Entity;
+import jakarta.persistence.Entity;
 
 @Entity
 public class PhoneBillPaymentTransaction extends BillPaymentTransaction{

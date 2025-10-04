@@ -7,8 +7,6 @@ import static org.mockito.Mockito.when;
 
 import java.util.Optional;
 
-import javax.security.auth.login.AccountNotFoundException;
-
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -20,6 +18,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.eteration.simplebanking.dto.TransactionStatus;
 import com.eteration.simplebanking.model.Account;
+import com.eteration.simplebanking.model.AccountNotFoundException;
 import com.eteration.simplebanking.model.DepositTransaction;
 import com.eteration.simplebanking.model.WithdrawalTransaction;
 import com.eteration.simplebanking.repository.AccountRepository;
@@ -71,7 +70,7 @@ public class ServiceTests {
         
         ResponseStatusException ex = assertThrows(ResponseStatusException.class, () -> accountService.credit("9999", tx));
         
-        assertEquals(HttpStatus.NOT_FOUND.value(), ex.getStatus().value());
+        assertEquals(HttpStatus.NOT_FOUND.value(), ex.getStatusCode().value());
         assertEquals("ACCOUNT_NOT_FOUND", ex.getReason());
     }
 
@@ -99,7 +98,7 @@ public class ServiceTests {
 
         ResponseStatusException ex = assertThrows(ResponseStatusException.class, () -> accountService.debit("1234", tx));
        
-        assertEquals(HttpStatus.BAD_REQUEST.value(), ex.getStatus().value());
+        assertEquals(HttpStatus.BAD_REQUEST.value(), ex.getStatusCode().value());
         assertEquals("INSUFFICIENT_BALANCE", ex.getReason());
     }
 
@@ -110,7 +109,7 @@ public class ServiceTests {
 
         ResponseStatusException ex = assertThrows(ResponseStatusException.class, () -> accountService.debit("9999", tx));
 
-        assertEquals(HttpStatus.NOT_FOUND, ex.getStatus());
+        assertEquals(HttpStatus.NOT_FOUND, ex.getStatusCode());
         assertEquals("ACCOUNT_NOT_FOUND", ex.getReason());
     }
 

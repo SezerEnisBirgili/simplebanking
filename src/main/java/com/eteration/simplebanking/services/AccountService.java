@@ -1,7 +1,6 @@
 package com.eteration.simplebanking.services;
 
-import javax.security.auth.login.AccountNotFoundException;
-import javax.transaction.Transactional;
+import jakarta.transaction.Transactional;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -9,6 +8,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 import com.eteration.simplebanking.dto.TransactionStatus;
 import com.eteration.simplebanking.model.Account;
+import com.eteration.simplebanking.model.AccountNotFoundException;
 import com.eteration.simplebanking.model.DepositTransaction;
 import com.eteration.simplebanking.model.InsufficientBalanceException;
 import com.eteration.simplebanking.model.WithdrawalTransaction;
