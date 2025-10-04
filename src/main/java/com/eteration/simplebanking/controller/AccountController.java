@@ -1,7 +1,6 @@
 package com.eteration.simplebanking.controller;
 
-import javax.security.auth.login.AccountNotFoundException;
-import javax.validation.Valid;
+import jakarta.validation.Valid;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +15,7 @@ import com.eteration.simplebanking.dto.CreditRequest;
 import com.eteration.simplebanking.dto.DebitRequest;
 import com.eteration.simplebanking.dto.TransactionStatus;
 import com.eteration.simplebanking.mapper.Mapper;
+import com.eteration.simplebanking.model.AccountNotFoundException;
 import com.eteration.simplebanking.model.DepositTransaction;
 import com.eteration.simplebanking.model.InsufficientBalanceException;
 import com.eteration.simplebanking.model.WithdrawalTransaction;
